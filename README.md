@@ -350,7 +350,8 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6128.4 avail Mem
 @cpik02 ➜ /workspaces/OSProject (main) $ uname -a
 Linux codespaces-2734b1 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
-11. What is the available free memory in the system. ***(1 mark)***  
+11. What is the available free memory in the system. ***(1 mark)***
+
 298Mi.
 12. What is the available disk space mounted on /workspace. ***(1 mark)***  
 20447664 and used 35%.
