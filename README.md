@@ -460,7 +460,30 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)***
+```bash
+root@b22e19bd65dc:/# ls -l
+total 48
+lrwxrwxrwx    1 root root    7 Jan 13 00:00 bin -> usr/bin
+drwxr-xr-x    2 root root 4096 Dec 31 10:25 boot
+drwxr-xr-x    5 root root  360 Jan 28 10:41 dev
+drwxr-xr-x    1 root root 4096 Jan 28 10:41 etc
+drwxr-xr-x    2 root root 4096 Dec 31 10:25 home
+lrwxrwxrwx    1 root root    7 Jan 13 00:00 lib -> usr/lib
+lrwxrwxrwx    1 root root    9 Jan 13 00:00 lib64 -> usr/lib64
+drwxr-xr-x    2 root root 4096 Jan 13 00:00 media
+drwxr-xr-x    2 root root 4096 Jan 13 00:00 mnt
+drwxr-xr-x    2 root root 4096 Jan 13 00:00 opt
+dr-xr-xr-x  222 root root    0 Jan 28 10:41 proc
+drwxrwxrwx+   2 1000 1000 4096 Jan 28 10:39 root
+drwxr-xr-x    3 root root 4096 Jan 13 00:00 run
+lrwxrwxrwx    1 root root    8 Jan 13 00:00 sbin -> usr/sbin
+drwxr-xr-x    2 root root 4096 Jan 13 00:00 srv
+dr-xr-xr-x   12 root root    0 Jan 28 10:41 sys
+drwxrwxrwt    2 root root 4096 Jan 13 00:00 tmp
+drwxr-xr-x   12 root root 4096 Jan 13 00:00 usr
+drwxr-xr-x   11 root root 4096 Jan 13 00:00 var
+```
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
