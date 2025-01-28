@@ -158,8 +158,12 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)***  
+The container is not persistent because we deleted the file. Hence the data is lost unless stored in Docker volume or bind mounts.
+
+2. Can we run two, or three instances of debian linux? . ***(1 mark)***  
+Yes we can run multiple instances on Debian Linux using Docker. Each instances can be run through separate container.
+
 
 ## Running your own container with persistent storage
 
@@ -248,7 +252,7 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)***
 2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
 
 ## Intermediate Level (10 marks bonus)
