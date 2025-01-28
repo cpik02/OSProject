@@ -490,7 +490,12 @@ drwxr-xr-x   11 root root 4096 Jan 13 00:00 var
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+
+Yes I can. After running the code, the ownership shows as follow:
+```bash
+@cpik02 ➜ /workspaces/OSProject (main) $ ls -ld /workspaces/OSProject/myroot
+drwxrwxrwx+ 2 codespace codespace 4096 Jan 28 10:53 /workspaces/OSProject/myroot
+```
 
 ## You are on your own, create your own static webpage
 
