@@ -24,12 +24,10 @@ Team Mates:
 
 ***Questions:***
 
-1. What is the link of the fork OSProject in your repository. ***(1 mark)***
-
-__https://github.com/cpik02/OSProject__.
-2. How many files and folders are in this repository. ***(1 mark)***
-
-__1 file and 1 folder__.
+1. What is the link of the fork OSProject in your repository. ***(1 mark)***  
+https://github.com/cpik02/OSProject.
+2. How many files and folders are in this repository. ***(1 mark)***  
+1 file and 1 folder.
 
 
 ## Exploring github codespaces
@@ -61,15 +59,12 @@ __1 file and 1 folder__.
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)***
-
-__Linux Ubuntu__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)***
-
-__2-core 8GB RAM . 32GB / 4-core 16GB RAM . 32GB__.
-3. Why must we commit and sync our current work on source control? ***(1 mark)***
-
-__For other people to see recent update for this branch__.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)***  
+Linux Ubuntu.
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)***  
+2-core 8GB RAM . 32GB / 4-core 16GB RAM . 32GB.
+3. Why must we commit and sync our current work on source control? ***(1 mark)***  
+For other people to see recent update for this branch.
 
 ## Exploring the Terminal
 
