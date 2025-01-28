@@ -358,19 +358,23 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6128.4 avail Mem
 @cpik02 ➜ /workspaces/OSProject (main) $ uname -a
 Linux codespaces-2734b1 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
-11. What is the available free memory in the system. ***(1 mark)***
-
+11. What is the available free memory in the system. ***(1 mark)***  
 298Mi.
 12. What is the available disk space mounted on /workspace. ***(1 mark)***  
 20447664 and used 35%.
+
 13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)***  
 Linux codespaces-2734b1 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP x86_64 x86_64 x86_64 GNU/Linux.
+
 14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)***  
 ls command lists gives files names in general while ls -asl gives all files including hidden files in detail.
+
 15. What is the TLB size of the Virtual CPU. ***(1 mark)***  
 2560 4K pages.
+
 16. What is the CPU speed of the Virtual CPU. ***(1 mark)***  
 3243.319.
+
 17. What is the top running process that consumes the most CPU cycles. ***(1 mark)***  
 PID 2773 (codespace) with 1.3% CPU usage.
 
