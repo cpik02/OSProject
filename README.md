@@ -618,25 +618,88 @@ This guide will help you set up a simple Node.js website that retrieves a random
 
 Create a Docker network to for the two containers.
 For mysql, call it **mysqlnet** for nodejs call it **nodejsnet** .
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker network create mysqlnet
+d84f1b392081351869a757c040e88dd222e62ab1b6b59077c0f6486c947ff356
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker network create nodejsnet
+21a70b354df0e85317698103d853b3edada9710baced318e21e8d2d885c16501
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net mysqlnet --name c1 busybox sh
+Unable to find image 'busybox:latest' locally
+latest: Pulling from library/busybox
+9c0abc9c5bd3: Pull complete 
+Digest: sha256:a5d0ce49aa801d475da48f8cb163c354ab95cab073cd3c138bd458fc8257fbf1
+Status: Downloaded newer image for busybox:latest
+f13a05121b498fc63837ef5aa159a059ab3bed83f4f08dae0f363083ac405e4b
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net nodejsnet --name c2 busybox sh
+8deab46db831acb35337c294557dd63041dac644391ada5c6eef60bdeab280d8
+```
 
 #### Step 2: Set Up the MySQL Container
 
 Run a MySQL container on the created network.
 
-```sh
-docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net mysqlnet --name c1 busybox sh
+Unable to find image 'busybox:latest' locally
+latest: Pulling from library/busybox
+9c0abc9c5bd3: Pull complete 
+Digest: sha256:a5d0ce49aa801d475da48f8cb163c354ab95cab073cd3c138bd458fc8257fbf1
+Status: Downloaded newer image for busybox:latest
+f13a05121b498fc63837ef5aa159a059ab3bed83f4f08dae0f363083ac405e4b
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net nodejsnet --name c2 busybox sh
+8deab46db831acb35337c294557dd63041dac644391ada5c6eef60bdeab280d8
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+2c0a233485c3: Pull complete 
+21577e00f2ba: Pull complete 
+c294da35c13e: Pull complete 
+facc8f3107c1: Pull complete 
+de4342aa4ad8: Pull complete 
+4643f1cf56c2: Pull complete 
+139aca660b47: Pull complete 
+b10e1082570e: Pull complete 
+26313a3e0799: Pull complete 
+d43055c38217: Pull complete 
+Digest: sha256:45f5ae20cfe1d6e6c43684dfffef17db1e1e8dc9bf7133ceaafb25c16b10f31b
+Status: Downloaded newer image for mysql:latest
+b4085eba9103c484ffb0d1da32e5d685cb5db7cb58e4d74820d837ee667fdc12
 ```
 
 #### Step 3: Set Up the Node.js Container
 
 1. **Create a directory for your Node.js application and initialize it.**
 
-    ```sh
-    mkdir nodejs-app
-    cd nodejs-app
-    npm init -y
-    npm install express mysql
-    ```
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ mkdir nodejs-app
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ cd nodejs-app
+@Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ npm init -y
+Wrote to /workspaces/OSProject/nodejs-app/package.json:
+
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+@Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ npm install express mysql
+
+added 81 packages, and audited 82 packages in 4s
+
+14 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ ```
 
 2. **Create a file named `index.js` with the following content:**
 
@@ -709,15 +772,56 @@ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=root
 
 1. **Build the Docker image for the Node.js application.**
 
-    ```sh
-    docker build -t nodejs-app .
-    ```
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ docker build -t nodejs-app .
+[+] Building 41.7s (11/11) FINISHED                                                                                                              docker:default
+ => [internal] load build definition from Dockerfile                                                                                                       0.0s
+ => => transferring dockerfile: 406B                                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/node:14                                                                                                 2.7s
+ => [auth] library/node:pull token for registry-1.docker.io                                                                                                0.0s
+ => [internal] load .dockerignore                                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                                            0.0s
+ => [1/5] FROM docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa                                          30.7s
+ => => resolve docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa                                           0.0s
+ => => sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408 50.45MB / 50.45MB                                                           1.1s
+ => => sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131 10.00MB / 10.00MB                                                           1.3s
+ => => sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa 776B / 776B                                                                 0.0s
+ => => sha256:2cafa3fbb0b6529ee4726b4f599ec27ee557ea3dea7019182323b3779959927f 2.21kB / 2.21kB                                                             0.0s
+ => => sha256:1d12470fa662a2a5cb50378dcdc8ea228c1735747db410bbefb8e2d9144b5452 7.51kB / 7.51kB                                                             0.0s
+ => => sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5 7.86MB / 7.86MB                                                             1.2s
+ => => extracting sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408                                                                  4.2s
+ => => sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 191.85MB / 191.85MB                                                         6.2s
+ => => sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 51.88MB / 51.88MB                                                           2.8s
+ => => sha256:6f51ee005deac0d99898e41b8ce60ebf250ebe1a31a0b03f613aec6bbc9b83d8 4.19kB / 4.19kB                                                             1.6s
+ => => sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 35.24MB / 35.24MB                                                           3.5s
+ => => sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3 2.29MB / 2.29MB                                                             6.3s
+ => => extracting sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5                                                                  0.3s
+ => => sha256:0d27a8e861329007574c6766fba946d48e20d2c8e964e873de352603f22c4ceb 450B / 450B                                                                 6.5s
+ => => extracting sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131                                                                  0.2s
+ => => extracting sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2                                                                  2.3s
+ => => extracting sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569                                                                  9.1s
+ => => extracting sha256:6f51ee005deac0d99898e41b8ce60ebf250ebe1a31a0b03f613aec6bbc9b83d8                                                                  0.0s
+ => => extracting sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590                                                                  2.1s
+ => => extracting sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3                                                                  0.1s
+ => => extracting sha256:0d27a8e861329007574c6766fba946d48e20d2c8e964e873de352603f22c4ceb                                                                  0.0s
+ => [internal] load build context                                                                                                                          0.2s
+ => => transferring context: 3.45MB                                                                                                                        0.2s
+ => [2/5] WORKDIR /usr/src/app                                                                                                                             0.0s
+ => [3/5] COPY package*.json ./                                                                                                                            0.0s
+ => [4/5] RUN npm install                                                                                                                                  3.1s
+ => [5/5] COPY . .                                                                                                                                         0.4s
+ => exporting to image                                                                                                                                     4.7s
+ => => exporting layers                                                                                                                                    4.7s
+ => => writing image sha256:09784af2c8f3b86ccb3acf7e55804c0ed9b0c191b5052d4b11add14471101b8a                                                               0.0s
+ => => naming to docker.io/library/nodejs-app         
+ ```
 
 2. **Run the Node.js container on the same network as the MySQL container.**
 
-    ```sh
-    docker run --name nodejs-container --network nodejsnet -p 3000:3000 -d nodejs-app
-    ```
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ docker run --name nodejs-container --network nodejsnet -p 3000:3000 -d nodejs-app
+4ef6a78241bd94463bb954d091fc94598326797b9256f33d408af2d09cfdb7cf
+```
 
 #### Step 5: Test the Setup
 
@@ -750,6 +854,12 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 ***Questions:***
 
 1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
+```
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ curl http://localhost:3000/random
+curl: (7) Failed to connect to localhost port 3000: Connection refused
+```
+
+
 2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
 
 
