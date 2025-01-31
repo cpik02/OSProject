@@ -618,6 +618,21 @@ This guide will help you set up a simple Node.js website that retrieves a random
 
 Create a Docker network to for the two containers.
 For mysql, call it **mysqlnet** for nodejs call it **nodejsnet** .
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker network create mysqlnet
+d84f1b392081351869a757c040e88dd222e62ab1b6b59077c0f6486c947ff356
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker network create nodejsnet
+21a70b354df0e85317698103d853b3edada9710baced318e21e8d2d885c16501
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net mysqlnet --name c1 busybox sh
+Unable to find image 'busybox:latest' locally
+latest: Pulling from library/busybox
+9c0abc9c5bd3: Pull complete 
+Digest: sha256:a5d0ce49aa801d475da48f8cb163c354ab95cab073cd3c138bd458fc8257fbf1
+Status: Downloaded newer image for busybox:latest
+f13a05121b498fc63837ef5aa159a059ab3bed83f4f08dae0f363083ac405e4b
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net nodejsnet --name c2 busybox sh
+8deab46db831acb35337c294557dd63041dac644391ada5c6eef60bdeab280d8
+```
 
 #### Step 2: Set Up the MySQL Container
 
