@@ -772,9 +772,49 @@ found 0 vulnerabilities
 
 1. **Build the Docker image for the Node.js application.**
 
-    ```sh
-    docker build -t nodejs-app .
-    ```
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ docker build -t nodejs-app .
+[+] Building 41.7s (11/11) FINISHED                                                                                                              docker:default
+ => [internal] load build definition from Dockerfile                                                                                                       0.0s
+ => => transferring dockerfile: 406B                                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/node:14                                                                                                 2.7s
+ => [auth] library/node:pull token for registry-1.docker.io                                                                                                0.0s
+ => [internal] load .dockerignore                                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                                            0.0s
+ => [1/5] FROM docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa                                          30.7s
+ => => resolve docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa                                           0.0s
+ => => sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408 50.45MB / 50.45MB                                                           1.1s
+ => => sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131 10.00MB / 10.00MB                                                           1.3s
+ => => sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa 776B / 776B                                                                 0.0s
+ => => sha256:2cafa3fbb0b6529ee4726b4f599ec27ee557ea3dea7019182323b3779959927f 2.21kB / 2.21kB                                                             0.0s
+ => => sha256:1d12470fa662a2a5cb50378dcdc8ea228c1735747db410bbefb8e2d9144b5452 7.51kB / 7.51kB                                                             0.0s
+ => => sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5 7.86MB / 7.86MB                                                             1.2s
+ => => extracting sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408                                                                  4.2s
+ => => sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 191.85MB / 191.85MB                                                         6.2s
+ => => sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 51.88MB / 51.88MB                                                           2.8s
+ => => sha256:6f51ee005deac0d99898e41b8ce60ebf250ebe1a31a0b03f613aec6bbc9b83d8 4.19kB / 4.19kB                                                             1.6s
+ => => sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 35.24MB / 35.24MB                                                           3.5s
+ => => sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3 2.29MB / 2.29MB                                                             6.3s
+ => => extracting sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5                                                                  0.3s
+ => => sha256:0d27a8e861329007574c6766fba946d48e20d2c8e964e873de352603f22c4ceb 450B / 450B                                                                 6.5s
+ => => extracting sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131                                                                  0.2s
+ => => extracting sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2                                                                  2.3s
+ => => extracting sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569                                                                  9.1s
+ => => extracting sha256:6f51ee005deac0d99898e41b8ce60ebf250ebe1a31a0b03f613aec6bbc9b83d8                                                                  0.0s
+ => => extracting sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590                                                                  2.1s
+ => => extracting sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3                                                                  0.1s
+ => => extracting sha256:0d27a8e861329007574c6766fba946d48e20d2c8e964e873de352603f22c4ceb                                                                  0.0s
+ => [internal] load build context                                                                                                                          0.2s
+ => => transferring context: 3.45MB                                                                                                                        0.2s
+ => [2/5] WORKDIR /usr/src/app                                                                                                                             0.0s
+ => [3/5] COPY package*.json ./                                                                                                                            0.0s
+ => [4/5] RUN npm install                                                                                                                                  3.1s
+ => [5/5] COPY . .                                                                                                                                         0.4s
+ => exporting to image                                                                                                                                     4.7s
+ => => exporting layers                                                                                                                                    4.7s
+ => => writing image sha256:09784af2c8f3b86ccb3acf7e55804c0ed9b0c191b5052d4b11add14471101b8a                                                               0.0s
+ => => naming to docker.io/library/nodejs-app         
+ ```
 
 2. **Run the Node.js container on the same network as the MySQL container.**
 
