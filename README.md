@@ -821,7 +821,7 @@ found 0 vulnerabilities
 ```bash
 @Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ docker run --name nodejs-container --network nodejsnet -p 3000:3000 -d nodejs-app
 4ef6a78241bd94463bb954d091fc94598326797b9256f33d408af2d09cfdb7cf
-    ```
+```
 
 #### Step 5: Test the Setup
 
