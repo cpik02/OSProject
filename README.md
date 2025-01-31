@@ -670,11 +670,35 @@ b4085eba9103c484ffb0d1da32e5d685cb5db7cb58e4d74820d837ee667fdc12
 
 1. **Create a directory for your Node.js application and initialize it.**
 
-    ```sh
-    mkdir nodejs-app
-    cd nodejs-app
-    npm init -y
-    npm install express mysql
+    ```bash
+    @Jazmar0630 ➜ /workspaces/OSProject (main) $ mkdir nodejs-app
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ cd nodejs-app
+@Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ npm init -y
+Wrote to /workspaces/OSProject/nodejs-app/package.json:
+
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+@Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ npm install express mysql
+
+added 81 packages, and audited 82 packages in 4s
+
+14 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
     ```
 
 2. **Create a file named `index.js` with the following content:**
