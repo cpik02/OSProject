@@ -670,8 +670,8 @@ b4085eba9103c484ffb0d1da32e5d685cb5db7cb58e4d74820d837ee667fdc12
 
 1. **Create a directory for your Node.js application and initialize it.**
 
-    ```bash
-    @Jazmar0630 ➜ /workspaces/OSProject (main) $ mkdir nodejs-app
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ mkdir nodejs-app
 @Jazmar0630 ➜ /workspaces/OSProject (main) $ cd nodejs-app
 @Jazmar0630 ➜ /workspaces/OSProject/nodejs-app (main) $ npm init -y
 Wrote to /workspaces/OSProject/nodejs-app/package.json:
@@ -699,7 +699,7 @@ added 81 packages, and audited 82 packages in 4s
   run `npm fund` for details
 
 found 0 vulnerabilities
-    ```
+ ```
 
 2. **Create a file named `index.js` with the following content:**
 
