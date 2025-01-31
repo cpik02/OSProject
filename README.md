@@ -29,9 +29,9 @@ Team Mates:
 https://github.com/cpik02/OSProject.
 
 2. How many files and folders are in this repository. ***(1 mark)***  
-
-1 file and 1 folder.
-
+```
+1 file and 3 folder.
+```
 
 ## Exploring github codespaces
 
