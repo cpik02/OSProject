@@ -853,16 +853,32 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
-```
+1. What is the output of step 5 above, explain the error? ***(1 mark)***  
+```bash
 @Jazmar0630 ➜ /workspaces/OSProject (main) $ curl http://localhost:3000/random
 curl: (7) Failed to connect to localhost port 3000: Connection refused
 ```
 
 
-2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
+2. Show the instruction needed to make this work. ***(1 mark)***  
+Step 1: Connect the two networks using bridge.
+```bash
+docker network create bridge-net
+docker network connect bridge-net mysql-container
+docker network connect bridge-net nodejs-container
+```
 
+Step 2: Restart the containers
+```bash
+docker restart mysql-container
+docker restart nodejs-container
+```
 
+Step 3: Test
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ curl http://localhost:3000/random
+curl: (7) Failed to connect to localhost port 3000: Connection refused
+```
 
 ## What to submit
 
