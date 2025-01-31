@@ -638,8 +638,32 @@ f13a05121b498fc63837ef5aa159a059ab3bed83f4f08dae0f363083ac405e4b
 
 Run a MySQL container on the created network.
 
-```sh
-docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+```bash
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net mysqlnet --name c1 busybox sh
+Unable to find image 'busybox:latest' locally
+latest: Pulling from library/busybox
+9c0abc9c5bd3: Pull complete 
+Digest: sha256:a5d0ce49aa801d475da48f8cb163c354ab95cab073cd3c138bd458fc8257fbf1
+Status: Downloaded newer image for busybox:latest
+f13a05121b498fc63837ef5aa159a059ab3bed83f4f08dae0f363083ac405e4b
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run -itd --net nodejsnet --name c2 busybox sh
+8deab46db831acb35337c294557dd63041dac644391ada5c6eef60bdeab280d8
+@Jazmar0630 ➜ /workspaces/OSProject (main) $ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+2c0a233485c3: Pull complete 
+21577e00f2ba: Pull complete 
+c294da35c13e: Pull complete 
+facc8f3107c1: Pull complete 
+de4342aa4ad8: Pull complete 
+4643f1cf56c2: Pull complete 
+139aca660b47: Pull complete 
+b10e1082570e: Pull complete 
+26313a3e0799: Pull complete 
+d43055c38217: Pull complete 
+Digest: sha256:45f5ae20cfe1d6e6c43684dfffef17db1e1e8dc9bf7133ceaafb25c16b10f31b
+Status: Downloaded newer image for mysql:latest
+b4085eba9103c484ffb0d1da32e5d685cb5db7cb58e4d74820d837ee667fdc12
 ```
 
 #### Step 3: Set Up the Node.js Container
